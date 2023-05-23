@@ -9,9 +9,5 @@
 {% block body %}
 {{ entry | safe }}
 
-<form method="post" action="{% url 'edit_entry' %}">
-    {% csrf_token %}
-    <input type='submit' value = 'edit'>
-
-</form>   
+<a href="{% url 'edit_entry' title=title %}">Edit Entry</a>
 {% endblock %} 

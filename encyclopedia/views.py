@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from markdown2 import Markdown
 from . import util
+import random
 
 
 
@@ -70,13 +71,27 @@ def new_entry(request):
         return render(request, "encyclopedia/new_entry.html")        
     
     
-def edit_entry(request,title):
-    if util.get_entry(title) == None:
-         return render(request, "encyclopedia/error.html", {
-            'message': f'Error: [{title}] - Entry not found'
-        })
-    else:     
-        return render(request, "encyclopedia/edit_entry.html", {
+def edit_entry(request, title):
+    if request.method == 'GET':
+        entry = util.get_entry(title)
+        if entry is None:
+            return render(request, "encyclopedia/error.html", {
+                'message': f'Error: [{title}] - Entry not found'
+            })
+        else:
+            return render(request, "encyclopedia/edit_entry.html", {
+                'title': title,
+                'entry': entry
+            })
+    elif request.method == 'POST':
+        content = request.POST['content']
+        util.save_entry(title, content)
+        return redirect('entry', title=title)
+    
+    
+def random_entry(request):
+    title = random.choice(lists)
+    return render(request, "encyclopedia/entry.html", {
             'title':title,
             'entry': markdowner.convert(util.get_entry(title)) 
-        })   
+        })    
