@@ -1,3 +1,0 @@
-# zura
-
-### zyra testi
