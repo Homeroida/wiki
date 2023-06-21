@@ -17,9 +17,9 @@ Wiki is a Django-based web application that provides a platform for creating and
 
 To run the Wiki application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/wiki.git`
+1. Clone the repository: `git clone https://github.com/Homeroida/wiki.git`
 2. Navigate to the project directory: `cd wiki`
-3. Create a virtual environment: `python3 -m venv venv`
+3. Create a virtual environment: `python -m venv venv`
 4. Activate the virtual environment:
    - For Windows: `venv\Scripts\activate`
    - For macOS/Linux: `source venv/bin/activate`
