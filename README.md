@@ -2,6 +2,11 @@
 
 Wiki is a simple web application built with Django that allows users to create and edit encyclopedia entries using Markdown.
 
+
+
+## Video Demo: https://youtu.be/sywQE4BoXpE
+
+
 ## Table of Contents
 
 - [Project Description](#project-description)
